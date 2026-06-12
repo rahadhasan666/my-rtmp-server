@@ -1,9 +1,6 @@
-FROM nginx:1.24.0-alpine
+FROM tiangolo/nginx-rtmp:latest
 
-RUN apk add --no-cache nginx-mod-rtmp
-
-RUN mkdir -p /var/www/html/hls && \
-    chmod 755 /var/www/html/hls
+RUN mkdir -p /var/www/html/hls
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
