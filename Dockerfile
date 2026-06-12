@@ -1,8 +1,9 @@
-FROM alpine:latest
+FROM nginx:alpine
 
-RUN apk add --no-cache nginx nginx-mod-rtmp
+RUN apk add --no-cache nginx-mod-rtmp
 
-RUN mkdir -p /var/www/html/hls
+RUN mkdir -p /var/www/html/hls && \
+    chmod 755 /var/www/html/hls
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
